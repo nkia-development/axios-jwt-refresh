@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "window": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["node_modules", "dist", "public/index.html"],
+  "plugins": ["svg-jsx"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "warn",
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "react/no-unknown-property": 0,
+    "svg-jsx/camel-case-dash": "error",
+    "svg-jsx/camel-case-colon": "error",
+    "svg-jsx/no-style-string": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
