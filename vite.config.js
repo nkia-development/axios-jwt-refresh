@@ -5,7 +5,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "AxiosJwtReissue",
+      name: "AxiosJwtRefresh",
       formats: ["es"],
       fileName: () => "index.js", // Output file name
     },

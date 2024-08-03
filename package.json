@@ -1,7 +1,7 @@
 {
-  "name": "axios-jwt-reissue",
-  "version": "0.0.3",
-  "description": "Axios interceptors can be used with JWT to automatically refresh tokens, utilizing open-source libraries like axios-auth-refresh",
+  "name": "axios-jwt-refresh",
+  "version": "0.0.1",
+  "description": "Axios interceptors can be used with JWT to automatically refresh tokens",
   "main": "dist/index.js",
   "types": "src/index.d.ts",
   "scripts": {
@@ -17,21 +17,21 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nkia-development/axios-jwt-reissue.git"
+    "url": "git+https://github.com/nkia-development/axios-jwt-refresh.git"
   },
   "author": "jukangpark",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nkia-development/axios-jwt-reissue/issues"
+    "url": "https://github.com/nkia-development/axios-jwt-refresh/issues"
   },
-  "homepage": "https://github.com/nkia-development/axios-jwt-reissue#readme",
+  "homepage": "https://github.com/nkia-development/axios-jwt-refresh#readme",
   "dependencies": {
     "axios": "^1.7.2"
   },
   "keywords": [
     "axios",
     "jwt",
-    "reissue",
+    "refresh",
     "interceptor"
   ],
   "devDependencies": {

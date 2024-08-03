@@ -1,5 +1,5 @@
-const axiosJwtReissue = () => {
-  console.log("axiosJwtReissue");
+const axiosJwtRefresh = () => {
+  console.log("axiosJwtRefresh");
 };
 
-export default axiosJwtReissue;
+export default axiosJwtRefresh;

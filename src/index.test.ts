@@ -1,12 +1,12 @@
-import axiosJwtReissue from "./index";
+import axiosJwtRefresh from "./index";
 
-describe("axiosJwtReissue", () => {
-  it('should log "axiosJwtReissue" to the console', () => {
+describe("axiosJwtRefresh", () => {
+  it('should log "axiosJwtRefresh" to the console', () => {
     const consoleSpy = jest.spyOn(console, "log");
 
-    axiosJwtReissue();
+    axiosJwtRefresh();
 
-    expect(consoleSpy).toHaveBeenCalledWith("axiosJwtReissue");
+    expect(consoleSpy).toHaveBeenCalledWith("axiosJwtRefresh");
 
     consoleSpy.mockRestore();
   });
