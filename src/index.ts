@@ -1,5 +1,8 @@
 import { AxiosInstance, AxiosResponse } from "axios";
-import { RefreshJwtCall, Options, State } from "./types";
+import { RefreshJwtCall, AxiosJwtRefreshOption, State } from "./types";
+import defaultOption from "./defaultOption";
+import getMergedOption from "./getMergedOption";
+
 /**
   @param {AxiosInstance} axiosInstance - Axios HTTP client instance
   @param {RefreshJwtCall} refreshJwtCall - refresh token call which must return a Promise
@@ -9,7 +12,7 @@ import { RefreshJwtCall, Options, State } from "./types";
 const axiosJwtRefresh = (
   axiosInstance: AxiosInstance,
   refreshJwtCall: RefreshJwtCall,
-  option: Options,
+  option: AxiosJwtRefreshOption,
 ) => {
   const state: State = {
     skippedAxiosInstances: [],
@@ -20,6 +23,7 @@ const axiosJwtRefresh = (
   return axiosInstance.interceptors.response.use(
     (response: AxiosResponse) => response,
     (error: any) => {
+      const mergedOption = getMergedOption(defaultOption, option);
       // [TO DO] - Implement the logic to refresh the token
       return Promise.reject(error);
     },
