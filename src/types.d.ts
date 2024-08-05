@@ -11,6 +11,6 @@ export interface State {
 }
 
 export interface AxiosJwtRefreshOption {
-  statusCodes: number[];
-  shouldRefresh: boolean;
+  statusCodes?: number[];
+  shouldRefresh?: boolean;
 }
