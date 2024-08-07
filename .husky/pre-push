@@ -1,0 +1,9 @@
+#!/bin/sh
+# This is a shell script used by Husky as a pre-push Git hook. It ensures that all tests pass before allowing the code to be pushed to the remote repository.
+
+. "$(dirname "$0")/_/husky.sh"
+# This line sources the Husky script, which sets up the environment for running the Git hook. It allows Husky to manage and execute the hook scripts properly.
+
+npm test
+# This command runs the npm test script to execute all the tests in the project. If the tests fail, the script exits with an error, preventing the push.
+# Note: This script is DEPRECATED in Husky version 10.0.0 and later. The usage of `#!/usr/bin/env sh` and sourcing the Husky script (`_husky.sh`) should be removed as they will no longer work in future versions.
