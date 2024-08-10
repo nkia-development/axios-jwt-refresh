@@ -1,7 +1,8 @@
 import { AxiosInstance, AxiosResponse } from "axios";
-import { RefreshJwtCall, AxiosJwtRefreshOption, State } from "./types";
+import { RefreshJwtCall, IAxiosJwtRefreshOption, IState } from "./types";
 import defaultOption from "./defaultOption";
 import getMergedOption from "./getMergedOption";
+import shouldInterceptError from "./shouldInterceptError";
 
 /**
   @param {AxiosInstance} axiosInstance - Axios HTTP client instance
@@ -12,9 +13,9 @@ import getMergedOption from "./getMergedOption";
 const axiosJwtRefresh = (
   axiosInstance: AxiosInstance,
   refreshJwtCall: RefreshJwtCall,
-  option: AxiosJwtRefreshOption,
+  option: IAxiosJwtRefreshOption,
 ) => {
-  const state: State = {
+  const state: IState = {
     skippedAxiosInstances: [],
     refreshJwtCall: undefined,
     requestQueueInterceptorId: undefined,
@@ -25,6 +26,12 @@ const axiosJwtRefresh = (
     (error: any) => {
       const mergedOption = getMergedOption(defaultOption, option);
       // [TO DO] - Implement the logic to refresh the token
+
+      if (!shouldInterceptError(error, mergedOption, axiosInstance, state)) {
+        // If the error is not a network error and the response status is not in the statusCodes array, we don't need to intercept this error
+        return Promise.reject(error);
+      }
+
       return Promise.reject(error);
     },
   );
