@@ -1,4 +1,4 @@
-import type { AxiosJwtRefreshOption } from "./types";
+import type { IAxiosJwtRefreshOption } from "./types";
 
 /**
   @param {AxiosJwtRefreshOption} defaultOption - default option
@@ -7,8 +7,8 @@ import type { AxiosJwtRefreshOption } from "./types";
   @description - Merge the default option with the provided option
  */
 const getMergedOption = (
-  defaultOption: AxiosJwtRefreshOption,
-  option: AxiosJwtRefreshOption,
+  defaultOption: IAxiosJwtRefreshOption,
+  option: IAxiosJwtRefreshOption,
 ) => {
   return {
     ...defaultOption,

@@ -4,13 +4,15 @@ type RefreshJwtCall = (error: any) => Promise<any>;
 
 type ShouldRefresh = (error: AxiosError) => boolean;
 
-export interface State {
+export interface IState {
   skippedAxiosInstances: AxiosInstance[];
   refreshJwtCall: Promise<any> | undefined;
   requestQueueInterceptorId: number | undefined;
 }
 
-export interface AxiosJwtRefreshOption {
+export interface IAxiosJwtRefreshOption {
   statusCodes?: number[];
-  shouldRefresh?: boolean;
+  interceptNetworkError?: boolean;
+  shouldRefresh?: function; // [TO DO] - Define the type of this function
+  pauseInstanceWhileRefreshing?: boolean;
 }
