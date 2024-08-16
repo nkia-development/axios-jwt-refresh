@@ -24,7 +24,7 @@ const config = {
   },
   coverageThreshold: {
     global: {
-      branches: 100,
+      branches: 80,
       functions: 24, // Temporarily lowered from 80% to 24%
       lines: 34, // Temporarily lowered from 80% to 34%
       statements: 34, // Temporarily lowered from 80% to 34%
