@@ -6,7 +6,7 @@ type ShouldRefresh = (error: AxiosError) => boolean;
 
 export interface IState {
   skippedAxiosInstances: AxiosInstance[];
-  refreshJwtCall: Promise<any> | undefined;
+  refreshJwtCall: Promise<any>;
   requestQueueInterceptorId: number | undefined;
 }
 
