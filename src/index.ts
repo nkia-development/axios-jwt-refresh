@@ -5,6 +5,8 @@ import getMergedOption from "./getMergedOption";
 import shouldInterceptError from "./shouldInterceptError";
 import createRefreshCall from "./createRefreshCall";
 import createRequestQueueInterceptor from "./createRequestQueueInterceptor";
+import resendFailedRequest from "./resendFailedRequest";
+import unsetState from "./unsetState";
 
 /**
   @param {AxiosInstance} axiosInstance - Axios HTTP client instance
@@ -40,7 +42,10 @@ const axiosJwtRefresh = (
       // Create interceptor that will bind all the others requests until refreshAuthCall is resolved
       createRequestQueueInterceptor(axiosInstance, state, option);
 
-      return Promise.reject(error);
+      return refreshCall
+        .catch(error => Promise.reject(error))
+        .then(() => resendFailedRequest(error, axiosInstance))
+        .finally(() => unsetState(axiosInstance, state));
     },
   );
 };
