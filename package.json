@@ -49,6 +49,6 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.0",
-    "vite": "^5.3.5"
+    "vite": "^6.0.1"
   }
 }
